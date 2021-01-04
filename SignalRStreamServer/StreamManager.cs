@@ -21,7 +21,10 @@ namespace SignalRStreamServer
 
         public async Task RunStreamAsync(string streamName, IAsyncEnumerable<byte[]> stream)
         {
-            var streamHolder = new StreamHolder() { Source = stream };
+            var streamHolder = new StreamHolder()
+            {
+                Source = stream
+            };
 
             // Add before yielding
             // This fixes a race where we tell clients a new stream arrives before adding the stream
